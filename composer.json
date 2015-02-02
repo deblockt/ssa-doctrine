@@ -1,0 +1,11 @@
+{
+    "name" : "ssa/doctrine",
+    "description" : "Add doctrine resolver for ssa framework.",
+    "require": {
+        "ssa/core": "*",
+		"doctrine/orm": ">=2.0.0"
+    },
+    "autoload" : {
+        "psr-4" : {"ssa\\" : ["src/ssa/"]}
+    }
+}
