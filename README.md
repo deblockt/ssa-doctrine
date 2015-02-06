@@ -67,7 +67,7 @@ productService.updateProduct({id : 1, price : 11.5}).done(function(data){
 
 #### Configuration
 
-For add this extension to ssa :
+To add this extension to ssa :
 
 - add ssa/doctrine dependencies on your composer.json
 - add DoctrineObjectResolver on DefaultParameterResolver
