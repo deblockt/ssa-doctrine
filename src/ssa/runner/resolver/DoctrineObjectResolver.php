@@ -40,7 +40,7 @@ class DoctrineObjectResolver extends DefaultObjectResolver {
             }
         }
         
-        $find =  $repository->find($parameters);
+        $find =  $repository->find($idValue);
         if ($find === NULL) {
             return parent::instanciate($class, $parameters);
         }
