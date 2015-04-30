@@ -18,8 +18,12 @@ class DoctrineObjectResolver extends DefaultObjectResolver {
     }
     
     protected function canResolve(\ReflectionClass $class) {
-        $meta = $this->em->getMetadataFactory()->getMetadataFor($class->getName());
-        return isset($meta->isMappedSuperclass) && $meta->isMappedSuperclass === false;
+        try {
+			$meta = $this->em->getMetadataFactory()->getMetadataFor($class->getName());
+			return isset($meta->isMappedSuperclass) && $meta->isMappedSuperclass === false;
+		} catch (\Exception $e){
+			return false;
+		}
     }
 	
     /**
