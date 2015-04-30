@@ -38,7 +38,13 @@ class DoctrineObjectResolver extends DefaultObjectResolver {
         $idValue = array();
         foreach ($identifiers as $identifier) {
             if (isset($parameters[$identifier])) {
-                $idValue[$identifier] = $parameters[$identifier];
+                if (is_array($parameters[$identifier])) {
+					foreach ($parameters[$identifier] as $key => $value) {
+						$idValue[$identifier] = $value;
+					}
+				} else {
+					$idValue[$identifier] = $parameters[$identifier];
+				}
             } else {
                 return parent::instanciate($class, $parameters);
             }
